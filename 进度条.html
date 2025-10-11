@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .out {
+      position: relative;
+      width: 400px;
+      height: 30px;
+      background-color: black;
+      border-radius: 15px;
+      margin: 20px;
+      padding: 2px;
+      margin-bottom: 0;
+    }
+
+    .inner {
+      position: relative;
+      height: 26px;
+      background-color: skyblue;
+      border-radius: 13px;
+      transition: all 0.5s;
+    }
+
+    .text {
+      position: absolute;
+      top: 30px;
+      left: 0px;
+      font-size: 18px;
+      color: pink;
+      transition: all 0.5s;
+    }
+
+    .box {
+      width: 400px;
+      text-align: left;
+      margin-left: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 外层盒子 -->
+    <div class="out">
+      <!-- 内层盒子 -->
+      <div class="inner" :style="{width:percent+'%'}"></div>
+      <div class="text" :style="{marginLeft:percent+'%'}">{{percent}}%</div>
+    </div>
+    <div class="box">
+      <button @click="percent=25">设置25%</button>
+      <button @click="percent=50">设置50%</button>
+      <button @click="percent=75">设置75%</button>
+      <button @click="percent=100">设置100%</button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        percent: 80
+      },
+    })
+  </script>
+</body>
+
+</html>
